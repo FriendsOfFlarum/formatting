@@ -29,3 +29,5 @@ php flarum cache:clear
 
 - [Packagist](https://packagist.org/packages/fof/formatting)
 - [GitHub](https://github.com/FriendsOfFlarum/formatting)
+
+An extension by [FriendsOfFlarum](https://github.com/FriendsOfFlarum).
