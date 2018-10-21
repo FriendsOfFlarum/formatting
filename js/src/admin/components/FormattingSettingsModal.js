@@ -25,15 +25,4 @@ export default class FormattingSettingsModal extends SettingsModal {
             </div>,
         ];
     }
-
-    onsaved() {
-        this.hide();
-
-        this.loading = true;
-
-        return app.request({
-            method: 'POST',
-            url: `${app.forum.attribute('apiUrl')}/fof/formatting/cache`,
-        }).then(() => this.loading = false);
-    }
 }

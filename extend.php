@@ -19,9 +19,8 @@ return [
     (new Extend\Frontend('admin'))
         ->js(__DIR__ . '/js/dist/admin.js')
         ->css(__DIR__ . '/less/admin.less'),
-    (new Extend\Routes('api'))
-        ->post('/fof/formatting/cache', 'fof.formatting.cache', Controllers\ClearCacheController::class),
     function (Dispatcher $dispatcher) {
         $dispatcher->subscribe(Listeners\FormatterConfigurator::class);
+        $dispatcher->subscribe(Listeners\ClearCache::class);
     }
 ];
