@@ -26,7 +26,6 @@ class FormatterConfigurator
         'Autovideo',
         'FancyPants',
         'HTMLEntities',
-        'Litedown',
         'MediaEmbed',
         'PipeTables'
     ];
