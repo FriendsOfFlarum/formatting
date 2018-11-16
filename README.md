@@ -8,7 +8,7 @@ An alternative to [`s9e/flarum-ext-autovideo`](https://github.com/s9e/flarum-ext
 
 All the plugins that do not require configuration are included.
 
-![image](https://cdn.discordapp.com/attachments/492782431510855691/493916650031284234/unknown.png)
+![image](https://i.imgur.com/CnrvQEP.png)
 
 ### Installation
 
