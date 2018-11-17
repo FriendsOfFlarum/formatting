@@ -1,13 +1,18 @@
 .FofFormattingModal {
   .Checkbox {
+    > a {
+      min-width: 100px;
+      display: inline-block;
+    }
+
+    > span {
+      font-weight: normal;
+    }
+
     &.off {
       .Checkbox-display {
         background: darken(@control-bg, 5%);
       }
-    }
-
-    span {
-      font-weight: normal;
     }
   }
 }
