@@ -18,7 +18,8 @@ use Illuminate\Events\Dispatcher;
 return [
     (new Extend\Frontend('admin'))
         ->js(__DIR__ . '/js/dist/admin.js')
-        ->css(__DIR__ . '/less/admin.less'),
+        ->css(__DIR__ . '/resources/less/admin.less'),
+    new Extend\Locales(__DIR__ . '/resources/locale'),
     function (Dispatcher $dispatcher) {
         $dispatcher->subscribe(Listeners\FormatterConfigurator::class);
         $dispatcher->subscribe(Listeners\ClearCache::class);
