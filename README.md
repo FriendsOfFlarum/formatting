@@ -4,11 +4,11 @@
 
 A [Flarum](http://flarum.org) extension. Customize TextFormatter with plugins through the admin interface.
 
-An alternative to [`s9e/flarum-ext-autovideo`](https://github.com/s9e/flarum-ext-autovideo), [`s9e/flarum-ext-autoimage`](https://github.com/s9e/flarum-ext-autoimage), and [`s9e/flarum-ext-mediaembed`](https://github.com/s9e/flarum-ext-mediaembed) by [@JoshyPHP](https://github.com/JoshyPHP).
+An alternative to [`s9e/flarum-ext-autovideo`](https://github.com/s9e/flarum-ext-autovideo), [`s9e/flarum-ext-autoimage`](https://github.com/s9e/flarum-ext-autoimage), [`s9e/flarum-ext-mediaembed`](https://github.com/s9e/flarum-ext-mediaembed), and [`s9e/flarum-ext-fancypants`](https://github.com/s9e/flarum-ext-fancypants) by [@JoshyPHP](https://github.com/JoshyPHP).
 
 All the plugins that do not require configuration are included.
 
-![image](https://i.imgur.com/CnrvQEP.png)
+![image](https://i.imgur.com/C5mqGcf.png)
 
 ### Installation
 
@@ -22,7 +22,6 @@ composer require fof/formatting
 
 ```sh
 composer update fof/formatting
-php flarum cache:clear
 ```
 
 ### Links
