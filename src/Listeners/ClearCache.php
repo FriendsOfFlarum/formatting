@@ -1,13 +1,12 @@
 <?php
 
-/**
- *  This file is part of fof/formatting.
+/*
+ * This file is part of fof/formatting.
  *
- *  Copyright (c) 2018 FriendsOfFlarum.
+ * Copyright (c) 2018 FriendsOfFlarum.
  *
- *
- *  For the full copyright and license information, please view the LICENSE.md
- *  file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
  */
 
 namespace FoF\Formatting\Listeners;
@@ -32,6 +31,7 @@ class ClearCache
         foreach ($event->settings as $key => $setting) {
             if (strpos($key, 'fof-formatting.plugin.') === 0) {
                 app('flarum.formatter')->flush();
+
                 return;
             }
         }

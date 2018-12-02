@@ -1,13 +1,12 @@
 <?php
 
-/**
- *  This file is part of fof/formatting.
+/*
+ * This file is part of fof/formatting.
  *
- *  Copyright (c) 2018 FriendsOfFlarum.
+ * Copyright (c) 2018 FriendsOfFlarum.
  *
- *
- *  For the full copyright and license information, please view the LICENSE.md
- *  file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
  */
 
 namespace FoF\Formatting\Listeners;
@@ -27,7 +26,7 @@ class FormatterConfigurator
         'FancyPants',
         'HTMLEntities',
         'MediaEmbed',
-        'PipeTables'
+        'PipeTables',
     ];
 
     /**
@@ -35,7 +34,8 @@ class FormatterConfigurator
      */
     private $settings;
 
-    public function __construct(SettingsRepositoryInterface $settings) {
+    public function __construct(SettingsRepositoryInterface $settings)
+    {
         $this->settings = $settings;
     }
 
@@ -49,6 +49,7 @@ class FormatterConfigurator
         $events->listen(Serializing::class, [$this, 'addData']);
         $events->listen(Configuring::class, [$this, 'configureFormatter']);
     }
+
     /**
      * Adds settings to admin settings.
      *
@@ -61,9 +62,10 @@ class FormatterConfigurator
         }
     }
 
-    public function configureFormatter(Configuring $event) {
-        foreach($this->plugins as $plugin) {
-            $enabled = $this->settings->get('fof-formatting.plugin.' . strtolower($plugin));
+    public function configureFormatter(Configuring $event)
+    {
+        foreach ($this->plugins as $plugin) {
+            $enabled = $this->settings->get('fof-formatting.plugin.'.strtolower($plugin));
 
             if ($enabled) {
                 if ($plugin == 'MediaEmbed') {
