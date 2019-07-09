@@ -1,0 +1,9 @@
+fof-formatting:
+  admin:
+    plugins:
+      Autoimage: Resim bağlantılarını gerçek resimlere dönüştür
+      Autovideo: Video bağlantılarını oynatılabilir videolara dönüştür
+      FancyPants: Süslü yazı tipi kullan
+      HTMLEntities: HTML kullanımına izin ver
+      MediaEmbed: Desteklenen sitelerden içerik önizlenmesine izin ver
+      PipeTables: ASCII-tarzı tablolar
