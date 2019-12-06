@@ -12,9 +12,11 @@
 namespace FoF\Formatting;
 
 use Flarum\Extend;
+use FoF\Components\Extend\AddFofComponents;
 use Illuminate\Events\Dispatcher;
 
 return [
+    new AddFofComponents(),
     (new Extend\Frontend('admin'))
         ->js(__DIR__.'/js/dist/admin.js')
         ->css(__DIR__.'/resources/less/admin.less'),
