@@ -1,0 +1,9 @@
+fof-formatting:
+  admin:
+    plugins:
+      Autoimage: Преобразовать URL-адресов изображений в реальные изображения
+      Autovideo: Конвертировать видео URL в воспроизводимые видео
+      FancyPants: Использовать модную типографику
+      HTMLEntities: Использовать HTML-объекты
+      MediaEmbed: Вставлять контент с медиа сайтов
+      PipeTables: Таблицы в стиле ASCII
