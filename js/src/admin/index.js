@@ -11,7 +11,7 @@ app.initializers.add('fof/formatting', () => {
                 title: 'FriendsOfFlarum Formatting',
                 className: 'FofFormattingModal',
                 items: [
-                    app.forum.attribute('fof-formatting.plugins').map(plugin => (
+                    app.forum.attribute('fof-formatting.plugins').map((plugin) => (
                         <BooleanItem key={`fof-formatting.plugin.${plugin.toLowerCase()}`} cast={Number}>
                             <a href={`https://s9etextformatter.readthedocs.io/Plugins/${plugin}/Synopsis`} target="_blank">
                                 {plugin}

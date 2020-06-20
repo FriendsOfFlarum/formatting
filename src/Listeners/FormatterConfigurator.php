@@ -27,6 +27,7 @@ class FormatterConfigurator
         'HTMLEntities',
         'MediaEmbed',
         'PipeTables',
+        'TaskLists'
     ];
 
     /**
