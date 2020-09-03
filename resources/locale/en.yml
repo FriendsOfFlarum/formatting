@@ -1,5 +1,7 @@
 fof-formatting:
   admin:
+    title: FriendsOfFlarum Formatting
+
     plugins:
       Autoimage: Convert image URLs into actual images
       Autovideo: Convert video URLs into playable videos

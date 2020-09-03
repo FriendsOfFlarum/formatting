@@ -11,9 +11,14 @@
 
 namespace FoF\Formatting;
 
+use Flarum\Api\Event\Serializing;
 use Flarum\Extend;
+use Flarum\Settings\Event\Saved;
 use FoF\Components\Extend\AddFofComponents;
+use FoF\Formatting\Listeners\FormatterConfigurator;
 use Illuminate\Events\Dispatcher;
+use s9e\TextFormatter\Configurator;
+use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
 return [
     new AddFofComponents(),
@@ -27,8 +32,25 @@ return [
 
     new Extend\Locales(__DIR__.'/resources/locale'),
 
+    (new Extend\Formatter())
+        ->configure(function (Configurator $configurator) {
+            $settings = app('flarum.settings');
+
+            foreach (FormatterConfigurator::PLUGINS as $plugin) {
+                $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
+
+                if ($enabled) {
+                    if ($plugin == 'MediaEmbed') {
+                        (new MediaPack())->configure($configurator);
+                    } else {
+                        $configurator->$plugin;
+                    }
+                }
+            }
+        }),
+
     function (Dispatcher $dispatcher) {
-        $dispatcher->subscribe(Listeners\FormatterConfigurator::class);
-        $dispatcher->subscribe(Listeners\ClearCache::class);
+        $dispatcher->listen(Serializing::class, Listeners\FormatterConfigurator::class);
+        $dispatcher->listen(Saved::class, Listeners\ClearCache::class);
     },
 ];

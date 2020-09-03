@@ -20,7 +20,7 @@ use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
 class FormatterConfigurator
 {
-    private $plugins = [
+    const PLUGINS = [
         'Autoimage',
         'Autovideo',
         'FancyPants',
@@ -41,40 +41,14 @@ class FormatterConfigurator
     }
 
     /**
-     * Subscribes to the Flarum events.
-     *
-     * @param Dispatcher $events
-     */
-    public function subscribe(Dispatcher $events)
-    {
-        $events->listen(Serializing::class, [$this, 'addData']);
-        $events->listen(Configuring::class, [$this, 'configureFormatter']);
-    }
-
-    /**
      * Adds settings to admin settings.
      *
      * @param Serializing $event
      */
-    public function addData(Serializing $event)
+    public function handle(Serializing $event)
     {
         if ($event->isSerializer(ForumSerializer::class) && $event->actor->isAdmin()) {
-            $event->attributes['fof-formatting.plugins'] = $this->plugins;
-        }
-    }
-
-    public function configureFormatter(Configuring $event)
-    {
-        foreach ($this->plugins as $plugin) {
-            $enabled = $this->settings->get('fof-formatting.plugin.'.strtolower($plugin));
-
-            if ($enabled) {
-                if ($plugin == 'MediaEmbed') {
-                    (new MediaPack())->configure($event->configurator);
-                } else {
-                    $event->configurator->$plugin;
-                }
-            }
+            $event->attributes['fof-formatting.plugins'] = self::PLUGINS;
         }
     }
 }

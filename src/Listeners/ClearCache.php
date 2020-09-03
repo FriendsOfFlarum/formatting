@@ -16,17 +16,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 class ClearCache
 {
-    /**
-     * Subscribes to the Flarum events.
-     *
-     * @param Dispatcher $events
-     */
-    public function subscribe(Dispatcher $events)
-    {
-        $events->listen(Saved::class, [$this, 'saved']);
-    }
-
-    public function saved(Saved $event)
+    public function handle(Saved $event)
     {
         foreach ($event->settings as $key => $setting) {
             if (strpos($key, 'fof-formatting.plugin.') === 0) {
