@@ -13,10 +13,7 @@ namespace FoF\Formatting\Listeners;
 
 use Flarum\Api\Event\Serializing;
 use Flarum\Api\Serializer\ForumSerializer;
-use Flarum\Formatter\Event\Configuring;
 use Flarum\Settings\SettingsRepositoryInterface;
-use Illuminate\Contracts\Events\Dispatcher;
-use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
 class FormatterConfigurator
 {

@@ -12,7 +12,6 @@
 namespace FoF\Formatting\Listeners;
 
 use Flarum\Settings\Event\Saved;
-use Illuminate\Contracts\Events\Dispatcher;
 
 class ClearCache
 {
