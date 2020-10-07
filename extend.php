@@ -16,7 +16,6 @@ use Flarum\Extend;
 use Flarum\Settings\Event\Saved;
 use FoF\Components\Extend\AddFofComponents;
 use FoF\Formatting\Listeners\FormatterConfigurator;
-use Illuminate\Events\Dispatcher;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
