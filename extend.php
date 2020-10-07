@@ -3,7 +3,7 @@
 /*
  * This file is part of fof/formatting.
  *
- * Copyright (c) 2019 FriendsOfFlarum.
+ * Copyright (c) 2020 FriendsOfFlarum.
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -11,9 +11,13 @@
 
 namespace FoF\Formatting;
 
+use Flarum\Api\Event\Serializing;
 use Flarum\Extend;
+use Flarum\Settings\Event\Saved;
 use FoF\Components\Extend\AddFofComponents;
-use Illuminate\Events\Dispatcher;
+use FoF\Formatting\Listeners\FormatterConfigurator;
+use s9e\TextFormatter\Configurator;
+use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
 return [
     new AddFofComponents(),
@@ -27,8 +31,24 @@ return [
 
     new Extend\Locales(__DIR__.'/resources/locale'),
 
-    function (Dispatcher $dispatcher) {
-        $dispatcher->subscribe(Listeners\FormatterConfigurator::class);
-        $dispatcher->subscribe(Listeners\ClearCache::class);
-    },
+    (new Extend\Formatter())
+        ->configure(function (Configurator $configurator) {
+            $settings = app('flarum.settings');
+
+            foreach (FormatterConfigurator::PLUGINS as $plugin) {
+                $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
+
+                if ($enabled) {
+                    if ($plugin == 'MediaEmbed') {
+                        (new MediaPack())->configure($configurator);
+                    } else {
+                        $configurator->$plugin;
+                    }
+                }
+            }
+        }),
+
+    (new Extend\Event())
+        ->listen(Serializing::class, Listeners\FormatterConfigurator::class)
+        ->listen(Saved::class, Listeners\ClearCache::class),
 ];

@@ -7,13 +7,13 @@
   "type": "flarum-extension",
   "license": "MIT",
   "require": {
-    "flarum/core": "^0.1.0-beta.8",
-    "fof/components": ">=0.1.0"
+    "flarum/core": "^0.1.0-beta.14",
+    "fof/components": ">=0.2.0"
   },
   "authors": [
     {
       "name": "David Sevilla Martín",
-      "email": "david.s@redevs.org",
+      "email": "me+fof@datitisev.me",
       "role": "Developer"
     }
   ],
