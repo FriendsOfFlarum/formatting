@@ -49,8 +49,7 @@ return [
             }
         }),
 
-    function (Dispatcher $dispatcher) {
-        $dispatcher->listen(Serializing::class, Listeners\FormatterConfigurator::class);
-        $dispatcher->listen(Saved::class, Listeners\ClearCache::class);
-    },
+    (new Extend\Event())
+        ->listen(Serializing::class, Listeners\FormatterConfigurator::class)
+        ->listen(Saved::class, Listeners\ClearCache::class),
 ];
