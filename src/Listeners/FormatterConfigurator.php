@@ -25,7 +25,7 @@ class FormatterConfigurator
         'TaskLists',
     ];
 
-    public function __invoke(ForumSerializer $serializer)
+    public function __invoke(ForumSerializer $serializer): array
     {
         $attributes = [];
 
