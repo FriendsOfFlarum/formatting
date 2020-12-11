@@ -28,7 +28,7 @@ class FormatterConfigurator
     public function __invoke(ForumSerializer $serializer)
     {
         $attributes = [];
-        
+
         if ($serializer->getActor()->isAdmin()) {
             $attributes['fof-formatting.plugins'] = self::PLUGINS;
         }
