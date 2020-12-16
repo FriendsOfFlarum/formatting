@@ -11,9 +11,7 @@
 
 namespace FoF\Formatting\Listeners;
 
-use Flarum\Api\Event\Serializing;
 use Flarum\Api\Serializer\ForumSerializer;
-use Flarum\Settings\SettingsRepositoryInterface;
 
 class FormatterConfigurator
 {
@@ -27,25 +25,14 @@ class FormatterConfigurator
         'TaskLists',
     ];
 
-    /**
-     * @var SettingsRepositoryInterface
-     */
-    private $settings;
-
-    public function __construct(SettingsRepositoryInterface $settings)
+    public function __invoke(ForumSerializer $serializer): array
     {
-        $this->settings = $settings;
-    }
+        $attributes = [];
 
-    /**
-     * Adds settings to admin settings.
-     *
-     * @param Serializing $event
-     */
-    public function handle(Serializing $event)
-    {
-        if ($event->isSerializer(ForumSerializer::class) && $event->actor->isAdmin()) {
-            $event->attributes['fof-formatting.plugins'] = self::PLUGINS;
+        if ($serializer->getActor()->isAdmin()) {
+            $attributes['fof-formatting.plugins'] = self::PLUGINS;
         }
+
+        return $attributes;
     }
 }

@@ -11,7 +11,7 @@
 
 namespace FoF\Formatting;
 
-use Flarum\Api\Event\Serializing;
+use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Extend;
 use Flarum\Settings\Event\Saved;
 use FoF\Components\Extend\AddFofComponents;
@@ -48,7 +48,9 @@ return [
             }
         }),
 
+    (new Extend\ApiSerializer(ForumSerializer::class))
+        ->mutate(FormatterConfigurator::class),
+
     (new Extend\Event())
-        ->listen(Serializing::class, Listeners\FormatterConfigurator::class)
         ->listen(Saved::class, Listeners\ClearCache::class),
 ];
