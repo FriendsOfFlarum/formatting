@@ -33,7 +33,7 @@ return [
 
     (new Extend\Formatter())
         ->configure(function (Configurator $configurator) {
-            $settings = app('flarum.settings');
+            $settings = resolve('flarum.settings');
 
             foreach (FormatterConfigurator::PLUGINS as $plugin) {
                 $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
