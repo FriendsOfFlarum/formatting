@@ -33,7 +33,7 @@ return [
 
     (new Extend\Formatter())
         ->configure(function (Configurator $configurator) {
-            $settings = app('flarum.settings');
+            $settings = resolve('flarum.settings');
 
             foreach (FormatterConfigurator::PLUGINS as $plugin) {
                 $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
@@ -49,7 +49,7 @@ return [
         }),
 
     (new Extend\ApiSerializer(ForumSerializer::class))
-        ->mutate(FormatterConfigurator::class),
+        ->attributes(FormatterConfigurator::class),
 
     (new Extend\Event())
         ->listen(Saved::class, Listeners\ClearCache::class),
