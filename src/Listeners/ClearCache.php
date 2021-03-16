@@ -19,7 +19,7 @@ class ClearCache
     {
         foreach ($event->settings as $key => $setting) {
             if (strpos($key, 'fof-formatting.plugin.') === 0) {
-                app('flarum.formatter')->flush();
+                resolve('flarum.formatter')->flush();
 
                 return;
             }

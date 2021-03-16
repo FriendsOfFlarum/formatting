@@ -7,7 +7,7 @@
   "type": "flarum-extension",
   "license": "MIT",
   "require": {
-    "flarum/core": "^0.1.0-beta.15",
+    "flarum/core": "^0.1.0-beta.16",
     "fof/components": ">=0.2.0"
   },
   "support": {
@@ -37,7 +37,7 @@
   "extra": {
     "flarum-extension": {
       "title": "FoF Formatting",
-      "category": "formatting",
+      "category": "feature",
       "icon": {
         "name": "fas fa-font",
         "backgroundColor": "#e74c3c",

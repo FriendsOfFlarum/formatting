@@ -49,7 +49,7 @@ return [
         }),
 
     (new Extend\ApiSerializer(ForumSerializer::class))
-        ->mutate(FormatterConfigurator::class),
+        ->attributes(FormatterConfigurator::class),
 
     (new Extend\Event())
         ->listen(Saved::class, Listeners\ClearCache::class),
