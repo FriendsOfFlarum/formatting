@@ -23,20 +23,20 @@ return [
     new AddFofComponents(),
 
     (new Extend\Frontend('forum'))
-        ->css(__DIR__ . '/resources/less/forum.less'),
+        ->css(__DIR__.'/resources/less/forum.less'),
 
     (new Extend\Frontend('admin'))
-        ->js(__DIR__ . '/js/dist/admin.js')
-        ->css(__DIR__ . '/resources/less/admin.less'),
+        ->js(__DIR__.'/js/dist/admin.js')
+        ->css(__DIR__.'/resources/less/admin.less'),
 
-    new Extend\Locales(__DIR__ . '/resources/locale'),
+    new Extend\Locales(__DIR__.'/resources/locale'),
 
     (new Extend\Formatter())
         ->configure(function (Configurator $configurator) {
             $settings = resolve('flarum.settings');
 
             foreach (FormatterConfigurator::PLUGINS as $plugin) {
-                $enabled = $settings->get('fof-formatting.plugin.' . strtolower($plugin));
+                $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
 
                 if ($enabled) {
                     if ($plugin == 'MediaEmbed') {
