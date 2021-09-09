@@ -14,14 +14,11 @@ namespace FoF\Formatting;
 use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Extend;
 use Flarum\Settings\Event\Saved;
-use FoF\Components\Extend\AddFofComponents;
 use FoF\Formatting\Listeners\FormatterConfigurator;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Configurator\Bundles\MediaPack;
 
 return [
-    new AddFofComponents(),
-
     (new Extend\Frontend('forum'))
         ->css(__DIR__.'/resources/less/forum.less'),
 
