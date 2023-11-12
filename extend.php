@@ -39,6 +39,7 @@ return [
                     if ($plugin == 'MediaEmbed') {
                         (new MediaPack())->configure($configurator);
                     } else {
+                        //* @phpstan-ignore-next-line */
                         $configurator->$plugin;
                     }
                 }
