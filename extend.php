@@ -11,11 +11,11 @@
 
 namespace FoF\Formatting;
 
+use Flarum\Api\Resource;
 use Flarum\Extend;
 use Flarum\Settings\Event\Saved;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Configurator\Bundles\MediaPack;
-use Flarum\Api\Resource;
 
 return [
     (new Extend\Frontend('forum'))
