@@ -4,33 +4,35 @@ import ExtensionPage from 'flarum/admin/components/ExtensionPage';
 import LinkButton from 'flarum/common/components/LinkButton';
 
 export default class FormattingExtensionSettingsPage extends ExtensionPage {
-  oninit(vnode) {
-    super.oninit(vnode);
-  }
-
   content() {
-    return [
+    const plugins = app.forum.attribute<[]>('fof-formatting.plugins');
+    return (
       <div className="container">
         <div className="FoFFormattingSettingsPage">
           <Form>
-            {app.forum.attribute('fof-formatting.plugins').map((plugin) =>
+            {plugins.map((plugin: string) =>
               this.buildSettingComponent({
                 type: 'boolean',
                 setting: `fof-formatting.plugin.${plugin.toLowerCase()}`,
 
-                label: (
-                  <LinkButton href={`https://s9etextformatter.readthedocs.io/Plugins/${plugin}/Synopsis`} external={true} target="_blank">
-                    {plugin}
+                label: plugin,
+
+                help: (
+                  <LinkButton
+                    className="Button Button--link"
+                    href={`https://s9etextformatter.readthedocs.io/Plugins/${plugin}/Synopsis`}
+                    external={true}
+                    target="_blank"
+                  >
+                    {app.translator.trans(`fof-formatting.admin.plugins.${plugin}`)}
                   </LinkButton>
                 ),
-
-                help: app.translator.trans(`fof-formatting.admin.plugins.${plugin}`),
               })
             )}
             <div className="Form-group">{this.submitButton()}</div>
           </Form>
         </div>
-      </div>,
-    ];
+      </div>
+    );
   }
 }

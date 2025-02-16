@@ -15,7 +15,7 @@ use Flarum\Settings\Event\Saved;
 
 class ClearCache
 {
-    public function handle(Saved $event)
+    public function handle(Saved $event): void
     {
         foreach ($event->settings as $key => $setting) {
             if (strpos($key, 'fof-formatting.plugin.') === 0) {

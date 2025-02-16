@@ -11,16 +11,11 @@
 
 namespace FoF\Formatting;
 
-use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Extend;
 use Flarum\Settings\Event\Saved;
-use FoF\Formatting\Listeners\FormatterConfigurator;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Configurator\Bundles\MediaPack;
-use Flarum\Api\Context;
-use Flarum\Api\Endpoint;
 use Flarum\Api\Resource;
-use Flarum\Api\Schema;
 
 return [
     (new Extend\Frontend('forum'))
@@ -36,7 +31,7 @@ return [
         ->configure(function (Configurator $configurator) {
             $settings = resolve('flarum.settings');
 
-            foreach (FormatterConfigurator::PLUGINS as $plugin) {
+            foreach (Api\ForumResourceFields::PLUGINS as $plugin) {
                 $enabled = $settings->get('fof-formatting.plugin.'.strtolower($plugin));
 
                 if ($enabled) {
@@ -50,9 +45,8 @@ return [
             }
         }),
 
-    // @TODO: Replace with the new implementation https://docs.flarum.org/2.x/extend/api#extending-api-resources
-    (new Extend\ApiSerializer(ForumSerializer::class))
-        ->attributes(FormatterConfigurator::class),
+    (new Extend\ApiResource(Resource\ForumResource::class))
+        ->fields(Api\ForumResourceFields::class),
 
     (new Extend\Event())
         ->listen(Saved::class, Listeners\ClearCache::class),
