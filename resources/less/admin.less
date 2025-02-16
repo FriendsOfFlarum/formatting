@@ -12,8 +12,15 @@
 
     &.off {
       .Checkbox-display {
-        background: darken(@control-bg, 5%);
+        background: var(--control-bg-darken-5);
       }
     }
   }
+}
+
+[data-theme^=light] {
+  --control-bg-darken-5: darken(@control-bg-light, 5%);
+}
+[data-theme^=dark] {
+  --control-bg-darken-5: darken(@control-bg-dark, 5%);
 }
