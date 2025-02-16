@@ -17,6 +17,10 @@ use Flarum\Settings\Event\Saved;
 use FoF\Formatting\Listeners\FormatterConfigurator;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Configurator\Bundles\MediaPack;
+use Flarum\Api\Context;
+use Flarum\Api\Endpoint;
+use Flarum\Api\Resource;
+use Flarum\Api\Schema;
 
 return [
     (new Extend\Frontend('forum'))
@@ -46,6 +50,7 @@ return [
             }
         }),
 
+    // @TODO: Replace with the new implementation https://docs.flarum.org/2.x/extend/api#extending-api-resources
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(FormatterConfigurator::class),
 
