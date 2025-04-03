@@ -38,6 +38,11 @@ return [
                 if ($enabled) {
                     if ($plugin == 'MediaEmbed') {
                         (new MediaPack())->configure($configurator);
+
+                        $configurator->MediaEmbed->add('youtube');
+
+                        $tag = $configurator->tags['YOUTUBE'];
+                        $tag->template = str_replace('www.youtube.com', 'www.youtube-nocookie.com', $tag->template);
                     } else {
                         //* @phpstan-ignore-next-line */
                         $configurator->$plugin;
