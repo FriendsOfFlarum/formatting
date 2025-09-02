@@ -2,6 +2,7 @@ import Form from 'flarum/common/components/Form';
 import app from 'flarum/admin/app';
 import ExtensionPage from 'flarum/admin/components/ExtensionPage';
 import LinkButton from 'flarum/common/components/LinkButton';
+import Icon from 'flarum/common/components/Icon';
 
 export default class FormattingExtensionSettingsPage extends ExtensionPage {
   content() {
@@ -24,7 +25,7 @@ export default class FormattingExtensionSettingsPage extends ExtensionPage {
                     external={true}
                     target="_blank"
                   >
-                    {app.translator.trans(`fof-formatting.admin.plugins.${plugin}`)}
+                    {app.translator.trans(`fof-formatting.admin.plugins.${plugin}`)} <Icon name="fas fa-external-link-alt" />
                   </LinkButton>
                 ),
               })
