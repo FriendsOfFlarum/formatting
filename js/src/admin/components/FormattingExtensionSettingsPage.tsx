@@ -25,7 +25,7 @@ export default class FormattingExtensionSettingsPage extends ExtensionPage {
                     external={true}
                     target="_blank"
                   >
-                    {app.translator.trans(`fof-formatting.admin.plugins.${plugin} `)}
+                    {app.translator.trans(`fof-formatting.admin.plugins.${plugin}`)}{' '}
                     <Icon name="fas fa-external-link-alt" />
                   </LinkButton>
                 ),
