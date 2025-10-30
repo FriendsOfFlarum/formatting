@@ -16,9 +16,13 @@ use s9e\TextFormatter\Configurator;
 
 class ConfigureYouTube
 {
+    /** @var SettingsRepositoryInterface */
+    protected $settings;
+
     public function __construct(
-        protected SettingsRepositoryInterface $settings
+        SettingsRepositoryInterface $settings
     ) {
+        $this->settings = $settings;
     }
 
     public function __invoke(Configurator $configurator): void
