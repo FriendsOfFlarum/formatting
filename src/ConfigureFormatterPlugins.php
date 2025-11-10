@@ -32,7 +32,7 @@ class ConfigureFormatterPlugins
     {
         // Enable all plugins based on their settings
         foreach (FormatterConfiguratorListener::PLUGINS as $plugin) {
-            $enabled = (bool) $this->settings->get('fof-formatting.plugin.' . strtolower($plugin));
+            $enabled = (bool) $this->settings->get('fof-formatting.plugin.'.strtolower($plugin));
 
             if ($enabled) {
                 if ($plugin === 'MediaEmbed') {
