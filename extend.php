@@ -27,7 +27,7 @@ return [
     new Extend\Locales(__DIR__.'/resources/locale'),
 
     (new Extend\Formatter())
-        ->configure(ConfigureYouTube::class),
+        ->configure(ConfigureFormatterPlugins::class),
 
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(FormatterConfigurator::class),
