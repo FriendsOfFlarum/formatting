@@ -7,7 +7,7 @@
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
-        "flarum/core": "2.x-dev"
+        "flarum/core": "^2.0.0"
     },
     "support": {
         "issues": "https://github.com/FriendsOfFlarum/formatting/issues",
@@ -56,7 +56,7 @@
         }
     },
     "require-dev": {
-        "flarum/phpstan": "2.x-dev"
+        "flarum/phpstan": "^2.0.0"
     },
     "scripts": {
         "analyse:phpstan": "phpstan analyse",
@@ -65,5 +65,6 @@
     "scripts-descriptions": {
         "analyse:phpstan": "Run static analysis"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "beta",
+    "prefer-stable": true
 }
